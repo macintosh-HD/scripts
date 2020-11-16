@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+set -e
+
+echo "This operation could break the integrity of your current repository."
+echo "Please commit all changes before running this script!"
+echo "Do you want to continue? (y/n)"
+
+read continue
+
+if [ "$continue" = "y" ]; then
+    git rm -r --cached .
+    git add .
+    git commit -m "updated .gitignore"
+fi
+
+exit
